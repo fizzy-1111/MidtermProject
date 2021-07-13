@@ -1,14 +1,21 @@
 package com.example.musicapp;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.Toolbar;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.icu.text.Normalizer2;
 import android.media.Image;
+import android.media.MediaMetadataRetriever;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -47,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         if (checkPermission()) {
             AudioSetup();
@@ -144,7 +152,8 @@ public class MainActivity extends AppCompatActivity {
         Cursor cursor= contentResolver.query(uri,null,null,null,null);
         if(cursor!=null && cursor.moveToFirst()){
             do {
-
+                int column_index = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DATA);
+                String pathId = cursor.getString(column_index);
                 String title = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.TITLE));
                 String artist = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ARTIST));
                 String duration = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DURATION));
@@ -154,6 +163,18 @@ public class MainActivity extends AppCompatActivity {
                 modelSong.setSongArtist(artist);
                 modelSong.setSongUri(Uri.parse(url));
                 modelSong.setSongDuration(duration);
+                try {
+                    MediaMetadataRetriever mmr = new MediaMetadataRetriever();
+                    mmr.setDataSource(pathId);
+                    byte [] data = mmr.getEmbeddedPicture();
+                    Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
+                    modelSong.setArtcover(bitmap);
+                }
+                catch (Exception e)
+                {
+                    Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.music_symbol );
+                    modelSong.setArtcover(bitmap);
+                }
                 modelSongArrayList.add(modelSong);
 
             } while (cursor.moveToNext());

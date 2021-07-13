@@ -1,5 +1,6 @@
 package com.example.musicapp;
 
+import android.graphics.Bitmap;
 import android.net.Uri;
 
 public class ModelSong {
@@ -7,6 +8,7 @@ public class ModelSong {
     String songDuration;
     String songArtist;
     Uri songUri;
+    Bitmap Artcover;
 
     public String getSongTitle() {
         return songTitle;
@@ -38,5 +40,13 @@ public class ModelSong {
 
     public void setSongUri(Uri songUri) {
         this.songUri = songUri;
+    }
+
+    public Bitmap getArtcover() {
+        return Artcover;
+    }
+
+    public void setArtcover(Bitmap artcover) {
+        Artcover = artcover;
     }
 }

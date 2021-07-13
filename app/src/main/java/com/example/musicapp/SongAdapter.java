@@ -33,6 +33,7 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.MyViewHolder> 
         ModelSong  mdSong= songList.get(i);
         myViewHolder.txttitle.setText(mdSong.getSongTitle());
         myViewHolder.txtartist.setText(mdSong.getSongArtist());
+        myViewHolder.img.setImageBitmap(mdSong.getArtcover());
     }
 
     @Override
@@ -48,6 +49,7 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.MyViewHolder> 
             //img=(ImageView) itemView.findViewById(R.id.image);
             txttitle=(TextView) itemView.findViewById(R.id.title);
             txtartist=(TextView) itemView.findViewById(R.id.artist);
+            img=(ImageView) itemView.findViewById(R.id.image);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
