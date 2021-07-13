@@ -15,12 +15,10 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.MyViewHolder> 
 
     Context context;
     ArrayList<ModelSong> songList;
-    int layout;
 
-    public SongAdapter( Context context, ArrayList<ModelSong> songList, int layout) {
+    public SongAdapter( Context context, ArrayList<ModelSong> songList) {
         this.context = context;
         this.songList = songList;
-        this.layout = layout;
     }
 
     @Override
