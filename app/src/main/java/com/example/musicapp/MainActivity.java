@@ -67,20 +67,68 @@ public class MainActivity extends AppCompatActivity {
          modelSongArrayList= new ArrayList<>();
          mediaPlayer =new MediaPlayer();
          getAudioFiles();
+         prepAudio(audio_index);
+
         btnPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               playAudio(audio_index);
+               if(mediaPlayer.isPlaying()){
+                   mediaPlayer.pause();
+                   btnPlay.setImageResource(R.drawable.pausebtn);
+               }
+               else {
+                   mediaPlayer.start();
+                   btnPlay.setImageResource(R.drawable.playbtn);
+               }
             }
         });
+        btnStop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mediaPlayer.stop();
+                btnPlay.setImageResource(R.drawable.pausebtn);
+                prepAudio(audio_index);
 
+            }
+        });
+        btnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                audio_index++;
+                if(audio_index> modelSongArrayList.size()-1){
+                        audio_index=0;
+                }
+                prepAudio(audio_index);
+                btnPlay.setImageResource(R.drawable.playbtn);
+                mediaPlayer.start();
+            }
+        });
+        btnPrev.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                audio_index--;
+                if(audio_index<0){
+                    audio_index=0;
+                }
+                prepAudio(audio_index);
+                btnPlay.setImageResource(R.drawable.playbtn);
+                mediaPlayer.start();
+            }
+        });
+        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                audio_index++;
+
+            }
+        });
     }
-    public void playAudio(int pos)  {
+
+    public void prepAudio(int pos)  {
         mediaPlayer.reset();
         try {
             mediaPlayer.setDataSource(this, modelSongArrayList.get(pos).getSongUri());
             mediaPlayer.prepare();
-            mediaPlayer.start();
             txtTitle.setText(modelSongArrayList.get(pos).getSongTitle());
             audio_index=pos;
         } catch (IOException e) {
@@ -109,6 +157,14 @@ public class MainActivity extends AppCompatActivity {
         }
         SongAdapter songAdapter= new SongAdapter(this,modelSongArrayList);
         recyclerView.setAdapter(songAdapter);
+        songAdapter.setOnItemClickListener(new SongAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int pos, View v) {
+             prepAudio(pos);
+             mediaPlayer.start();
+             btnPlay.setImageResource(R.drawable.playbtn);
+            }
+        });
     }
     //runtime storage permission
     public boolean checkPermission() {

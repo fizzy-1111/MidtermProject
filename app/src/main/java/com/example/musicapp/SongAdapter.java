@@ -15,7 +15,7 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.MyViewHolder> 
 
     Context context;
     ArrayList<ModelSong> songList;
-
+    public OnItemClickListener onItemClickListener;
     public SongAdapter( Context context, ArrayList<ModelSong> songList) {
         this.context = context;
         this.songList = songList;
@@ -48,7 +48,19 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.MyViewHolder> 
             //img=(ImageView) itemView.findViewById(R.id.image);
             txttitle=(TextView) itemView.findViewById(R.id.title);
             txtartist=(TextView) itemView.findViewById(R.id.artist);
-
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onItemClickListener.onItemClick(getAdapterPosition(), v);
+                }
+            });
         }
+    }
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(int pos, View v);
     }
 }
