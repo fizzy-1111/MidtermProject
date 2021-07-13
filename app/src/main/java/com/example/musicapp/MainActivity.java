@@ -123,7 +123,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    private void setTime(){
 
+    }
     public void prepAudio(int pos)  {
         mediaPlayer.reset();
         try {
