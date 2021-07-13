@@ -47,7 +47,7 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.MyViewHolder> 
         TextView txttitle,txtartist;
         public MyViewHolder(  View itemView) {
             super(itemView);
-            img=(ImageView) itemView.findViewById(R.id.image);
+            //img=(ImageView) itemView.findViewById(R.id.image);
             txttitle=(TextView) itemView.findViewById(R.id.title);
             txtartist=(TextView) itemView.findViewById(R.id.artist);
 
