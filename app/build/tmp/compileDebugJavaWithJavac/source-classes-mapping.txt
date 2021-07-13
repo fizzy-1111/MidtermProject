@@ -1,0 +1,17 @@
+com/example/musicapp/ModelSong.java
+ com.example.musicapp.ModelSong
+com/example/musicapp/BuildConfig.java
+ com.example.musicapp.BuildConfig
+com/example/musicapp/SongAdapter.java
+ com.example.musicapp.SongAdapter
+ com.example.musicapp.SongAdapter$MyViewHolder
+ com.example.musicapp.SongAdapter$MyViewHolder$1
+ com.example.musicapp.SongAdapter$OnItemClickListener
+com/example/musicapp/MainActivity.java
+ com.example.musicapp.MainActivity
+ com.example.musicapp.MainActivity$1
+ com.example.musicapp.MainActivity$2
+ com.example.musicapp.MainActivity$3
+ com.example.musicapp.MainActivity$4
+ com.example.musicapp.MainActivity$5
+ com.example.musicapp.MainActivity$6

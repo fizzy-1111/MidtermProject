@@ -1,0 +1,98 @@
+[
+    {
+        "merged": "E:\\WP\\Musicapp\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "E:\\WP\\Musicapp\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\WP\\Musicapp\\app\\build\\intermediates\\res\\merged\\debug\\drawable_pause.png.flat",
+        "source": "E:\\WP\\Musicapp\\app\\src\\main\\res\\drawable\\pause.png"
+    },
+    {
+        "merged": "E:\\WP\\Musicapp\\app\\build\\intermediates\\res\\merged\\debug\\drawable_white_background.jpg.flat",
+        "source": "E:\\WP\\Musicapp\\app\\src\\main\\res\\drawable\\white_background.jpg"
+    },
+    {
+        "merged": "E:\\WP\\Musicapp\\app\\build\\intermediates\\res\\merged\\debug\\drawable_stopbtn.png.flat",
+        "source": "E:\\WP\\Musicapp\\app\\src\\main\\res\\drawable\\stopbtn.png"
+    },
+    {
+        "merged": "E:\\WP\\Musicapp\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "E:\\WP\\Musicapp\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "E:\\WP\\Musicapp\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "E:\\WP\\Musicapp\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\WP\\Musicapp\\app\\build\\intermediates\\res\\merged\\debug\\drawable_prevbtn.png.flat",
+        "source": "E:\\WP\\Musicapp\\app\\src\\main\\res\\drawable\\prevbtn.png"
+    },
+    {
+        "merged": "E:\\WP\\Musicapp\\app\\build\\intermediates\\res\\merged\\debug\\drawable_background_music.png.flat",
+        "source": "E:\\WP\\Musicapp\\app\\src\\main\\res\\drawable\\background_music.png"
+    },
+    {
+        "merged": "E:\\WP\\Musicapp\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "E:\\WP\\Musicapp\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "E:\\WP\\Musicapp\\app\\build\\intermediates\\res\\merged\\debug\\drawable_pausebtn.png.flat",
+        "source": "E:\\WP\\Musicapp\\app\\src\\main\\res\\drawable\\pausebtn.png"
+    },
+    {
+        "merged": "E:\\WP\\Musicapp\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "E:\\WP\\Musicapp\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\WP\\Musicapp\\app\\build\\intermediates\\res\\merged\\debug\\drawable_nextbtn.png.flat",
+        "source": "E:\\WP\\Musicapp\\app\\src\\main\\res\\drawable\\nextbtn.png"
+    },
+    {
+        "merged": "E:\\WP\\Musicapp\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
+        "source": "E:\\WP\\Musicapp\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "E:\\WP\\Musicapp\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "E:\\WP\\Musicapp\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\WP\\Musicapp\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "E:\\WP\\Musicapp\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "E:\\WP\\Musicapp\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "E:\\WP\\Musicapp\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "E:\\WP\\Musicapp\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "E:\\WP\\Musicapp\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "E:\\WP\\Musicapp\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "E:\\WP\\Musicapp\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "E:\\WP\\Musicapp\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "E:\\WP\\Musicapp\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "E:\\WP\\Musicapp\\app\\build\\intermediates\\res\\merged\\debug\\layout_music_details.xml.flat",
+        "source": "E:\\WP\\Musicapp\\app\\src\\main\\res\\layout\\music_details.xml"
+    },
+    {
+        "merged": "E:\\WP\\Musicapp\\app\\build\\intermediates\\res\\merged\\debug\\drawable_playbtn.png.flat",
+        "source": "E:\\WP\\Musicapp\\app\\src\\main\\res\\drawable\\playbtn.png"
+    },
+    {
+        "merged": "E:\\WP\\Musicapp\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_launcher_background.xml.flat",
+        "source": "E:\\WP\\Musicapp\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "E:\\WP\\Musicapp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "E:\\WP\\Musicapp\\app\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "E:\\WP\\Musicapp\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "E:\\WP\\Musicapp\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    }
+]
