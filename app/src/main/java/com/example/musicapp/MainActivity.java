@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
          btnNext=(ImageButton) findViewById(R.id.nextbtn);
          btnPlay=(ImageButton) findViewById(R.id.playbtn);
          btnStop=(ImageButton) findViewById(R.id.stopbtn);
-         btnPrev=(ImageButton) findViewById(R.id.prevbtn);
+        // btnPrev=(ImageButton) findViewById(R.id.prevbtn);
 
     }
 }
