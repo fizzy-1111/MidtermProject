@@ -14,6 +14,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.icu.text.Normalizer2;
+import android.icu.text.SimpleDateFormat;
 import android.media.Image;
 import android.media.MediaMetadataRetriever;
 import android.media.MediaPlayer;
@@ -26,11 +27,13 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -46,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     TextView txtTitle, txtTimeCount, txtTimeTotal;
     SeekBar skbar;
-    ImageButton btnPrev,btnNext,btnStop,btnPlay;
+    ImageView btnPrev,btnNext,btnStop,btnPlay;
     MediaPlayer mediaPlayer;
     int audio_index=0;
 
@@ -54,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
         if (checkPermission()) {
             AudioSetup();
@@ -68,24 +70,27 @@ public class MainActivity extends AppCompatActivity {
          txtTitle=(TextView) findViewById(R.id.songNameText);
          txtTimeCount=(TextView) findViewById(R.id.timecount);
          txtTimeTotal=(TextView) findViewById(R.id.timetotal);
-         btnNext=(ImageButton) findViewById(R.id.nextbtn);
-         btnPlay=(ImageButton) findViewById(R.id.playbtn);
-         btnStop=(ImageButton) findViewById(R.id.stopbtn);
-         btnPrev=(ImageButton) findViewById(R.id.prevbtn);
+         btnNext=(ImageView) findViewById(R.id.nextbtn);
+         btnPlay=(ImageView) findViewById(R.id.playbtn);
+         btnStop=(ImageView) findViewById(R.id.stopbtn);
+         btnPrev=(ImageView) findViewById(R.id.prevbtn);
+         skbar=(SeekBar) findViewById(R.id.seekbar);
          modelSongArrayList= new ArrayList<>();
          mediaPlayer =new MediaPlayer();
          getAudioFiles();
-        if(modelSongArrayList.size()>=1) {
+         if(modelSongArrayList.size()>=1) {
             prepAudio(audio_index);
-
             btnPlay.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    setTime();
                     if (mediaPlayer.isPlaying()) {
                         mediaPlayer.pause();
+                        updateTime();
                         btnPlay.setImageResource(R.drawable.pausebtn);
                     } else {
                         mediaPlayer.start();
+                        updateTime();
                         btnPlay.setImageResource(R.drawable.playbtn);
                     }
                 }
@@ -95,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     mediaPlayer.stop();
                     btnPlay.setImageResource(R.drawable.pausebtn);
+                    updateTime();
                     prepAudio(audio_index);
 
                 }
@@ -107,8 +113,10 @@ public class MainActivity extends AppCompatActivity {
                         audio_index = 0;
                     }
                     prepAudio(audio_index);
+                    setTime();
                     btnPlay.setImageResource(R.drawable.playbtn);
                     mediaPlayer.start();
+                    updateTime();
                 }
             });
             btnPrev.setOnClickListener(new View.OnClickListener() {
@@ -119,21 +127,48 @@ public class MainActivity extends AppCompatActivity {
                         audio_index = 0;
                     }
                     prepAudio(audio_index);
+                    setTime();
                     btnPlay.setImageResource(R.drawable.playbtn);
                     mediaPlayer.start();
+                    updateTime();
+                }
+            });
+            skbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                @Override
+                public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
+                }
+
+                @Override
+                public void onStartTrackingTouch(SeekBar seekBar) {
+
+                }
+
+                @Override
+                public void onStopTrackingTouch(SeekBar seekBar) {
+                   mediaPlayer.seekTo(skbar.getProgress());
                 }
             });
             mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
                 public void onCompletion(MediaPlayer mp) {
                     audio_index++;
+                    if (audio_index < (modelSongArrayList.size())) {
+                        prepAudio(audio_index);
+                        setTime();
+                        mediaPlayer.start();
+                        updateTime();
+                    } else {
+                        audio_index = 0;
+                       prepAudio(audio_index);
+                       setTime();
+                       mediaPlayer.start();
+                        updateTime();
+                    }
 
                 }
             });
         }
-    }
-    private void setTime(){
-
     }
     public void prepAudio(int pos)  {
         mediaPlayer.reset();
@@ -187,8 +222,33 @@ public class MainActivity extends AppCompatActivity {
              prepAudio(pos);
              mediaPlayer.start();
              btnPlay.setImageResource(R.drawable.playbtn);
+             setTime();
             }
         });
+    }
+    private void setTime(){
+        SimpleDateFormat time=new SimpleDateFormat("mm:ss");
+        txtTimeTotal.setText(time.format(mediaPlayer.getDuration()));
+        skbar.setMax(mediaPlayer.getDuration());
+    }
+    private void updateTime(){
+        final Handler handler = new Handler();
+
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    SimpleDateFormat time = new SimpleDateFormat("mm:ss");
+                    txtTimeCount.setText(time.format(mediaPlayer.getCurrentPosition()));
+                    skbar.setProgress(mediaPlayer.getCurrentPosition());
+                    handler.postDelayed(this, 1000);
+                }
+                catch (IllegalStateException ed){
+                    ed.printStackTrace();
+                }
+            }
+        };
+        handler.postDelayed(runnable, 1000);
     }
     //runtime storage permission
     public boolean checkPermission() {

@@ -62,6 +62,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:thumbTint="@color/black"
+                android:progressTint="@color/black"
+                android:alpha="0.5"
                 />
 
             <TextView
@@ -85,39 +88,49 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <ImageButton
+            <com.google.android.material.imageview.ShapeableImageView
                 android:alpha="0.25"
                 android:scaleType="fitCenter"
                 android:id="@+id/prevbtn"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="10dp"
                 android:src="@drawable/prevbtn"
+                shapeAppearanceOverlay="@style/roundimageview"
                />
 
-            <ImageButton
+            <com.google.android.material.imageview.ShapeableImageView
                 android:alpha="0.25"
                 android:scaleType="fitCenter"
                 android:id="@+id/playbtn"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
                 android:src="@drawable/pausebtn"
                 />
-            <ImageButton
+            <com.google.android.material.imageview.ShapeableImageView
                 android:alpha="0.25"
                 android:scaleType="fitCenter"
                 android:id="@+id/stopbtn"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
                 android:src="@drawable/stopbtn"
+                shapeAppearanceOverlay="@style/roundimageview"
                 />
-            <ImageButton
+            <com.google.android.material.imageview.ShapeableImageView
                 android:alpha="0.25"
                 android:scaleType="fitCenter"
                 android:id="@+id/nextbtn"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/nextbtn" />
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/nextbtn"
+                shapeAppearanceOverlay="@style/roundimageview"
                 />
+
 
 
 
